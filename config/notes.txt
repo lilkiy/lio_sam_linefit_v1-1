@@ -1,0 +1,1 @@
+该params.yaml文件适用于kitti数据集，params_0.0.yaml为liosam的原版参数文件
