@@ -30,6 +30,10 @@ lio_sam:
   lidarMinRange: 1.0                          # default: 1.0, minimum lidar range to be used
   lidarMaxRange: 1000.0                       # default: 1000.0, maximum lidar range to be used
 
+  # F:Plane
+  floor_pts_thresh : 50   #构成地面的最小点数 室内可能要更小
+  floor_normal_thresh : 10   #筛选地面点法向量
+
   # IMU Settings
   imuAccNoise: 3.9939570888238808e-03
   imuGyrNoise: 1.5636343949698187e-03

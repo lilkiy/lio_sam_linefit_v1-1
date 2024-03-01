@@ -61,6 +61,7 @@
 using namespace std;
 
 typedef pcl::PointXYZI PointType;
+typedef pcl::PointXYZ PointGroundType;
 
 enum class SensorType { VELODYNE, OUSTER, LIVOX };
 
@@ -155,6 +156,12 @@ public:
     float globalMapVisualizationPoseDensity;
     float globalMapVisualizationLeafSize;
 
+    // F:Plane
+    int floor_pts_thresh;
+    float floor_normal_thresh;
+
+
+
     ParamServer()
     {
         nh.param<std::string>("/robot_id", robot_id, "roboat");
@@ -168,6 +175,10 @@ public:
         nh.param<std::string>("lio_sam/baselinkFrame", baselinkFrame, "base_link");
         nh.param<std::string>("lio_sam/odometryFrame", odometryFrame, "odom");
         nh.param<std::string>("lio_sam/mapFrame", mapFrame, "map");
+
+        // F：Plane
+        nh.param<int>("lio_sam/floor_pts_thresh", floor_pts_thresh, 50);
+        nh.param<float>("lio_sam/floor_normal_thresh", floor_normal_thresh, 10);
 
         nh.param<bool>("lio_sam/useImuHeadingInitialization", useImuHeadingInitialization, false);
         nh.param<bool>("lio_sam/useGpsElevation", useGpsElevation, false);
